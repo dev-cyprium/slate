@@ -1517,6 +1517,7 @@ export const Editor: EditorInterface = {
       at: end,
       match: n => Editor.isBlock(editor, n),
     })
+
     const blockPath = endBlock ? endBlock[1] : []
     const first = Editor.start(editor, [])
     const before = { anchor: first, focus: end }
@@ -1526,7 +1527,7 @@ export const Editor: EditorInterface = {
       at: before,
       match: Text.isText,
       reverse: true,
-      voids,
+      voids: true,
     })) {
       if (skip) {
         skip = false
